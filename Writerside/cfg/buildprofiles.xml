@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildprofiles xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <variables>
+    </variables>
+    <build-profile instance="mwdd">
+        <variables>
+<!--            <algolia-id>Q7AQKXY73O</algolia-id>-->
+<!--            <algolia-api-key>8e18c3ad40f5618e07f95f492afd149c</algolia-api-key>-->
+            <showDownloadButton>true</showDownloadButton>
+            <noindex-content>false</noindex-content>
+        </variables>
+    </build-profile>
+
+</buildprofiles>
