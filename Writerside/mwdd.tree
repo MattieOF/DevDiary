@@ -6,6 +6,7 @@
                   start-page="Dev-Diary-Overview.md">
 
     <toc-element topic="Dev-Diary-Overview.md">
+        <toc-element topic="Automatic-Building.md"/>
         <toc-element topic="Blogging-About-The-Blog.md"/>
     </toc-element>
     <toc-element topic="Project-1-One-Button-Game.md">
