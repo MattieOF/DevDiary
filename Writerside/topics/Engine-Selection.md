@@ -26,4 +26,4 @@ but with the recent attention the engine has been getting from both indies and m
 I felt it would be more worth my time to look into learning Godot and building a portfolio for it, instead of a mature 
 (and rarely used by AAA) engine such as GameMaker.
 
-So there we go, Godot Engine. Now time to learn it.
+So there we go, Godot Engine. [Now time to learn it](The-Basics.md).

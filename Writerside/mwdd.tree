@@ -12,5 +12,6 @@
     <toc-element topic="Project-1-One-Button-Game.md">
         <toc-element topic="Idea-Generation.md"/>
         <toc-element topic="Engine-Selection.md"/>
+        <toc-element topic="The-Basics.md"/>
     </toc-element>
 </instance-profile>
