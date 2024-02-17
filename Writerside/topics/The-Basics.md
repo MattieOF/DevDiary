@@ -21,16 +21,21 @@ I plan to learn this through [Godot's early but fast-moving documentation](https
 For example, the documentation contains [an explainer for Godot's key concepts](https://docs.godotengine.org/en/stable/getting_started/introduction/key_concepts_overview.html), which is exactly what I need to learn what I need to learn.
 I'll write about these key concepts here, if anything to further my understanding of them.
 
-In Godot, everything within the game is a _Node_ or a _Resource_. Every sprite, collision box, particle (system), UI text, instance of a 3D model, sound effect player, and even the game window itself are Nodes. 
+In Godot, everything within the game is a [**Node**](https://docs.godotengine.org/en/stable/classes/class_node.html) or 
+a [**Resource**](https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html). 
+Every sprite, collision box, particle (system), UI text, instance of a 3D model, sound effect player, and even the game window itself are Nodes. 
 As a rule of thumb, anything placed within the world is a Node at its core. 
-A resource is any asset or other object that is used throughout the project in multiple instances. For example, any 3D model, texture, or C# script is a Resource.
+A resource is any asset or other object that is used throughout the project in multiple instances. 
+For example, any 3D model, texture, or C# script is a Resource.
 
 This architecture is common throughout game engines. For example, a Node in Godot is comparable to a GameObject in Unity. 
 One difference is that Nodes do _not_ have components. They are subclasses of another type of Node or the base Node class itself. 
 All functionality for a specific node is defined by that subclass - there is no way to append functionality to a specific node itself. 
 Instead, more complex functionality is achieved via child Nodes (so, a component in Unity can be compared to a child Node in Godot).
 
-[TALK ABOUT SCENE TREE]
+So we know that Nodes are what makes up a Godot application, but Nodes cannot exist without structure. 
+Therefore, all nodes are contained within the [**Scene Tree**](https://docs.godotengine.org/en/stable/classes/class_scenetree.html).
+
 
 [TALK ABOUT SCENES]
 
