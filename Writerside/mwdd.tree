@@ -3,17 +3,13 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="mwdd" name="Matt Ware's Dev Diary"
-                  start-page="Dev-Diary-Overview.md">
+                  start-page="One-Button-Game.md">
 
-    <toc-element topic="Dev-Diary-Overview.md">
-        <toc-element topic="Blogging-About-The-Blog.md"/>
-        <toc-element topic="Automatic-Building.md"/>
-    </toc-element>
-    <toc-element topic="Project-1-One-Button-Game.md">
-        <toc-element topic="Idea-Generation.md"/>
-        <toc-element topic="Engine-Selection.md"/>
-        <toc-element topic="The-Basics.md"/>
+    <toc-element topic="One-Button-Game.md">
     </toc-element>
     <toc-element topic="Project-2-SHMUP.md"/>
     <toc-element topic="Project-3-Platformer.md"/>
+    <toc-element topic="Project-4-Pirate-Survivors.md"/>
+    <toc-element topic="CSGO-Quake.md"/>
+    <toc-element topic="Year-Overview.md"/>
 </instance-profile>

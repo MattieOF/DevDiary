@@ -10,4 +10,32 @@
         <description>Created after removal of "Engine Selection" from Matt Ware's Dev Diary</description>
         <accepts>Engine-Selection.html</accepts>
     </rule>
+    <rule id="c22895d">
+        <description>Created after removal of "Blogging About The Blog" from Matt Ware's Dev Diary</description>
+        <accepts>Blogging-About-The-Blog.html</accepts>
+    </rule>
+    <rule id="4e7c2180">
+        <description>Created after removal of "Automatic Building" from Matt Ware's Dev Diary</description>
+        <accepts>Automatic-Building.html</accepts>
+    </rule>
+    <rule id="5af421ca">
+        <description>Created after removal of "Dev Diary Overview" from Matt Ware's Dev Diary</description>
+        <accepts>Dev-Diary-Overview.html</accepts>
+    </rule>
+    <rule id="7e519c74">
+        <description>Created after removal of "Idea Generation" from Matt Ware's Dev Diary</description>
+        <accepts>Idea-Generation.html</accepts>
+    </rule>
+    <rule id="170bb896">
+        <description>Created after removal of "Engine Selection" from Matt Ware's Dev Diary</description>
+        <accepts>Engine-Selection.html</accepts>
+    </rule>
+    <rule id="777e6337">
+        <description>Created after removal of "The Basics" from Matt Ware's Dev Diary</description>
+        <accepts>The-Basics.html</accepts>
+    </rule>
+    <rule id="43a25285">
+        <description>Created after removal of "Project 1: One Button Game" from Matt Ware's Dev Diary</description>
+        <accepts>Project-1-One-Button-Game.html</accepts>
+    </rule>
 </rules>
