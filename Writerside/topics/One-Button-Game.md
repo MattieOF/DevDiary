@@ -1,4 +1,4 @@
-# Project 1: One Button Game
+# Project 1: Karate Kat
 
 _In this entry, I discuss the process of creating a One Button game with an artist in an engine I've never used before: [Godot](https://godotengine.org/)!_
 
@@ -15,12 +15,26 @@ Since this is the first project of university, I thought I'd continue the theme 
 
 _It's not uncommon to see statements like this when researching the pros of Godot._
 
-### Godot Experience
+### Console
 
 The first thing I created in the engine was a debug console, as the engine has no built-in way to execute commands in-game. I am used to using the console in Unreal to add variables and commands that allow easy debugging during runtime, so I wanted that in Godot too.
 
 A feature of Godot that I haven't found in any other engine is a very easy way to make moveable UI windows, with the [Window](https://docs.godotengine.org/en/stable/classes/class_window.html) node.
 It is moveable and resizeable out of the box. This saved a lot of time, so I'll definitely keep this in mind when creating UI in future.
+
+Originally, the code required each command to be registered manually, providing a name and a function to process the command.
+However, in Unreal, commands are created using the ``Exec`` function specifier. This is a form of metadata.
+It allows creating commands to be an extremely user-friendly experience; the system handles everything for you, 
+and you just have to write the functionality of the command.  There is no need to add code elsewhere to register the command. 
+This is behaviour I really wanted to achieve.
+
+I found [an article](https://medium.com/@lexitrainerph/mastering-c-attributes-a-comprehensive-guide-from-basics-to-advanced-38322b54dd98) 
+that how to use [Attributes](https://learn.microsoft.com/en-us/dotnet/csharp/advanced-topics/reflection-and-attributes/), which I realised I could use to achieve something similar in C#.
+
+In the code snippet below, I go through every type in my games code and check to see if it has any command functions.
+One interesting part of this code is how we check for default values, so that the user can easily 
+use native language features to specify aspects of the command. All of this is in service of original goal of 
+making it super easy to use.
 
 ```C#
 foreach(var type in Assembly.GetExecutingAssembly().GetTypes()) 
@@ -71,6 +85,10 @@ foreach(var type in Assembly.GetExecutingAssembly().GetTypes())
 }
 ```
 
+One issue with this is that it works using C# specific features. If I wanted to achieve something siliar in C++, I would
+not have reflection features to utilise, and would instead have to rely on static initialisation or, worse, boilerplate code
+to achieve the same thing.
+
 So, creating a new command is very simple. Here is some example code:
 
 ```C#
@@ -85,18 +103,64 @@ public static bool VsyncMode(CommandArguments args, int mode)
 }
 ```
 
-The final appearance of the console is below. I'm very happy with the appearance and functionality of the console; I believe its both easy to use and easy to extend.
+A video of the console in use is below. I'm very happy with the appearance and functionality of the console; I believe it's both easy to use and easy to extend, which is exactly what I was aiming for.
 
-![kkconsole.png](kkconsole.png)
+![ConsoleDemo.gif](ConsoleDemo.gif)
 
-Talk about using tweens instead of manually animating a float
+### Tweening
+
+Since the design was simple, the gameplay was fairly easy to implement, and mainly just required lots of referring to the [Godot Documentation](https://docs.godotengine.org/en/stable/index.html) to translate my Unity/Unreal experience to Godot.
+
+One thing I did learn during the project was using _tweens_. Tweens allow me to smoothly interpolate values with just a couple lines of one-shot code.
+Previously, I would create float variables, update them every frame, and use them in equations to make animations in code.
+This is a lot of setup, and requires adding a tick function to an object that may otherwise not need one, hurting performance.
+In Godot, I could use the built-in tweening system to modify values very easily:
+
+```C#
+var tween = helpText.CreateTween();
+
+tween.TweenProperty(helpText, new NodePath(Control.PropertyName.Position),
+ Variant.From(new Vector2(1200, helpText.Position.Y)), .5f).SetEase(Tween.EaseType.Out);
+ 
+tween.TweenProperty(cat, new NodePath(Sprite2D.PropertyName.Position),
+ Variant.From(catStart), .5f).SetEase(Tween.EaseType.Out);
+```
+
+I also experimented with the ``SetEase`` function, that allows me to add smoothing to the animations to make
+them feel much nicer from a game feel perspective.
+
+Tweening can modify any value of a lerpable type. For example, we can tween the pitch of the music to add effect when the player dies:
+
+```C#
+// Check if the music tween is active. 
+// If it is, stop it first to avoid overlapping tweens.
+if (_musicTween is not null && _musicTween.IsRunning())
+    _musicTween.Stop();
+
+_musicTween = music.CreateTween();
+_musicTween.TweenProperty(music, new NodePath(AudioStreamPlayer.PropertyName.PitchScale), 0.1, 0.5f);
+```
+
+<video src="../videos/kkmusicexample.mp4"/>
+
+Overall, tweening is a very useful tool that saves lots of boilerplate code while remaining performant,
+and offering useful functions for improving the feel of animations.
+In the future, I'll keep this in mind when creating animations in Godot code, and will seek out similar 
+features in other engines such as Unreal.
 
 ### Project Review
 
-Overall, I believe this project went well for me. I learned the basics of a new engine, which is important for a programmer, as the industry is constantly changing. You need to be able to pick up new tools, and the only way to keep that ability fresh is to continually try them.
+Overall, I believe this project went well for me. I learned the basics of a new engine, which is important 
+for a programmer, as the industry is constantly changing. You need to be able to pick up new tools, and the only 
+way to keep that ability fresh is to continually try them.
 
-Unfortunately, communication between me and my artist broke down and I did not receive the art for the project until _after_ the deadline. In the future, I should be more proactive about receiving art and implementing it as early as possible so artists can receive feedback.
+Unfortunately, communication between my artist and I broke down and I did not receive the art for 
+the project until _after_ the deadline. In the future, I should be more proactive about receiving art
+and implementing it as early as possible so artists can receive feedback.
 
-The immediate focus on creating tooling instead of gameplay definitely slowed me down in the start, and I think in future it's definitely a better idea to get gameplay prototypes up before anything like that. Regardless, the console was very helpful during the development of the game.
+The immediate focus on creating tooling instead of gameplay definitely slowed me down in the start, 
+and I think in future it's definitely a better idea to get gameplay prototypes up first. 
+If I spent more time on those, I may have been able to create a more interesting design.
+Regardless, the console was very helpful during the development of the game.
 
 [Karate Kat's source code is on GitHub](https://github.com/MattieOF/OneButton/).

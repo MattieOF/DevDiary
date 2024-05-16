@@ -1,10 +1,28 @@
-# Project 3: Platformer
+# Project 3: Steampunk Platformer
 
 _In this entry, I discuss how source control enabled collaboration, saved the entire project, and how I might improve my usage in the future._
 
 ### Collaboration via Source Control
 
-Able to give feedback
+While I had been using source control via GitHub for a couple of years at the time of
+starting the course, I had never used source control to collaborate with other people.
+Thanks to a Games Development lecture, my team and I were aware of how to share a Git
+repository with other team members. I got the GitHub usernames of all team members and 
+invited them to join the repository.
+
+One example of how this helped our process was collaborating on character movement. Originally,
+I set up a basic character with only slight changes to the default values, and added some extra
+mechanics, such as dash. I then committed these changes, and directed my designer on how to load
+the project and tweak the values until they felt right. He then pushed his changes, and I was able 
+to work on the values further based on feedback until we thought it was right.
+
+![platformerjamcollab.png](platformerjamcollab.png)
+
+This process made collaborating remotely seemless. 
+In comparison to previous methods (manually zipping, sending, editing, and resending game files), 
+it's an order of magnitude more productive.
+In the future, I'll definitely add every team member to the source repository 
+so that they can make changes and easily see the current state of the project.
 
 Source control also ended up saving the entire project! Only a couple of days before the project was due, my laptop died. Some sort of electrical short. It no longer turned on, and for all I knew, all the data on it was lost.
 Due to some warranty fine print, I wouldn't be getting it fixed for a whole month. 
