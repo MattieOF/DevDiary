@@ -38,4 +38,8 @@
         <description>Created after removal of "Project 1: One Button Game" from Matt Ware's Dev Diary</description>
         <accepts>Project-1-One-Button-Game.html</accepts>
     </rule>
+    <rule id="7632aca5">
+        <description>Created after removal of "CSGO: Quake" from Matt Ware's Dev Diary</description>
+        <accepts>CSGO-Quake.html</accepts>
+    </rule>
 </rules>
